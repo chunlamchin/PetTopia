@@ -73,7 +73,7 @@
 
 /* Hero Section */
 .hero {
-    background: url('/image/Hero%20Section.png') no-repeat center center;
+    background: url('Hero Section.png') no-repeat center center;
     background-size: cover;
     height: 100vh;
     display: flex;
