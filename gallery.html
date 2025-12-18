@@ -4,40 +4,47 @@
     <meta charset="UTF-8">
     <title>PetTopia | Gallery</title>
     <link rel="stylesheet" href="style.css">
+    
     <style>
-        body {
-            background-color: #FFF2CC;
-        }
+     body {
+         background-color: #B6FE9B;
+         }
+        
+        .animate-on-scroll {
+  opacity: 0;                  
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-        .nav-center a {
-            text-decoration: none;
-            font-weight: bold;
-            color: #fff;
-            transition: color 0.3s ease;
-        }
+.animate-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0); 
+}
 
-        .navbar.scrolled .nav-center a {
-            color: #000;
-        }
     </style>
+    
+    
 </head>
 <body>
 
+
 <nav class="navbar">
     <div class="nav-left">
-        <a href="index.html">
-            <img src="LOGO.png" alt="PetTopia Logo" class="nav-logo">
+        <a href="/HTML/Index.html">
+            <img src="/image/LOGO.png" alt="PetTopia Logo" class="nav-logo">
         </a>
     </div>
 
+
     <ul class="nav-center">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Service</a></li>
-        <li><a href="product.html">Product</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/html/index.html">Home</a></li>
+        <li><a href="/html/about.html">About</a></li>
+        <li><a href="/html/services.html">Service</a></li>
+        <li><a href="/html/product.html">Product</a></li>
+        <li><a href="/html/gallery.html">Gallery</a></li>
+        <li><a href="/html/contact.html">Contact</a></li>
     </ul>
+
 
     <div class="nav-right">
         <div class="hamburger" id="hamburger">
@@ -48,106 +55,144 @@
     </div>
 </nav>
 
-<script>
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if(window.scrollY > 50){
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+   <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('.nav-center a');
-        const currentPath = window.location.pathname.split("/").pop();
+  window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if(window.scrollY > 50){  
+          navbar.classList.add('scrolled');
+      } else {
+          navbar.classList.remove('scrolled');
+      }
+  });
 
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPath) {
-                link.classList.add('active');
-            }
-        });
-    });
 
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.querySelector('.nav-center');
+  document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-center a');
+      const currentPath = window.location.pathname;
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-    });
+      navLinks.forEach(link => {
+          if (link.pathname === currentPath) {
+              link.classList.add('active');
+          }
+      });
+  });
 
-    document.querySelectorAll('.nav-center a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('show');
-        });
-    });
+
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.querySelector('.nav-center');
+
+  hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+  });
+
+ 
+  document.querySelectorAll('.nav-center a').forEach(link => {
+      link.addEventListener('click', () => {
+          navMenu.classList.remove('show');
+      });
+  });
 </script>
 
-<section class="gallery-section">
-    <h2 class="logo">Gallery</h2>
-    <div class="gallery-content">
-        <p>
-            Explore our collection of happy pets and memorable moments at PetTopia. From playful activities to cozy lounging, our gallery showcases the love and care every pet receives.
-        </p>
-        <div class="gallery-grid">
-            <img src="gallery1.png" alt="Gallery Image 1" class="gallery-img">
-            <img src="gallery2.png" alt="Gallery Image 2" class="gallery-img">
-            <img src="gallery3.png" alt="Gallery Image 3" class="gallery-img">
-            <img src="gallery4.png" alt="Gallery Image 4" class="gallery-img">
-        </div>
+  <section class="gallery-header">
+    <h1 class="logo">Gallery</h1>
+</section>
+    
+<section class="gallery">
+    <div class="gallery-container">
+        <div class="gallery-item animate-on-scroll"><img src="/image/g1.png" alt="1"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g2.png" alt="2"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g3.png" alt="3"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g4.png" alt="4"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g5.png" alt="5"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g6.png" alt="6"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g7.png" alt="7"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g8.png" alt="8"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g9.png" alt="9"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g10.png" alt="10"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g11.png" alt="11"></div>
+        <div class="gallery-item animate-on-scroll"><img src="/image/g12.png" alt="12"></div>
     </div>
 </section>
 
-<a href="index.html" id="backToTop">
-    <img src="back to top.png" alt="Back to Top" />
-</a>
+    
+    <script>
+  const scrollElements = document.querySelectorAll('.animate-on-scroll');
 
-<script>
-    window.addEventListener("scroll", function() {
-        const btn = document.getElementById("backToTop");
-        if (window.scrollY > 300) {
-            btn.style.display = "block";
-        } else {
-            btn.style.display = "none";
-        }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
     });
+  }, {
+    threshold: 0.1
+  });
 
-    document.getElementById("backToTop").addEventListener("click", function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+  scrollElements.forEach(el => observer.observe(el));
 </script>
 
+
+<a href="/HTML/gallery.html" id="backToTop">
+    <img src="/image/back%20to%20top.png" alt="Back to Top" />
+</a>
+
+    <script>
+window.addEventListener("scroll", function() {
+    const btn = document.getElementById("backToTop");
+    if (window.scrollY > 300) {  
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+});
+
+document.getElementById("backToTop").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"   
+    });
+});
+        </script>
+    
+    
+<!-- Footer -->
 <footer class="footer">
     <div class="footer-top">
         <div class="footer-col">
-            <a href="index.html">
-                <img src="LOGO.png" alt="PetTopia Logo" class="footer-logo">
+            <a href="/HTML/Index.html">
+            <img src="/image/LOGO.png" alt="PetTopia Logo" class="footer-logo">
             </a>
         </div>
         <div class="footer-col">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Service</a>
-            <a href="product.html">Product</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/about.html">About</a>
+            <a href="/html/services.html">Service</a>
+            <a href="/html/product.html">Product</a>
+            <a href="/html/gallery.html">Gallery</a>
+            <a href="/html/contact.html">Contact</a>
         </div>
         <div class="footer-col">
             <h4>Location</h4>
             <a href="https://www.waze.com/live-map/directions/my/pahang/jerantut/taman-mawar-murni?to=place.ChIJjfIYPp9ByTER5i1r4z_Zrso" target="_blank">
-                <p>Taman Mawar Murni,<br>27000 Jerantut,<br>Pahang</p>
+            <p>Taman Mawar Murni,<br>27000 Jerantut,<br>Pahang</p>
             </a>
         </div>
         <div class="footer-col">
-            <h4>Contact</h4>
-            <p><a href="mailto:pettopia@gmail.com">pettopia@gmail.com</a></p>
-            <p><a href="https://wa.me/60139884339" target="_blank">013-9884339</a></p>
-            <p><a href="https://wa.me/60199937569" target="_blank">019-9937569</a></p>
-        </div>
+    <h4>Contact</h4>
+ 
+    <p><a href="mailto:pettopia@gmail.com">pettopia@gmail.com</a></p>
+    
+
+    <p><a href="https://wa.me/60139884339" target="_blank">013-9884339</a></p>
+    <p><a href="https://wa.me/60199937569" target="_blank">019-9937569</a></p>
+</div>
     </div>
     <div class="footer-bottom">
-        © 2025 PetTopia. All Rights Reserved. Designed by Chin Chun Lam.
+        © 2025PetTopia. All Rights Reserved. Designed by Chin Chun Lam.
     </div>
 </footer>
 
