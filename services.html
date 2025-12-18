@@ -2,42 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PetTopia | Services</title>
+    <title>PetTopia | Gallery</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background-color: #FBE7C6;
-        }
+    
+     <style>
+     body {
+         background-color: #69F4F0;
+         }
+         
 
-        .nav-center a {
-            text-decoration: none;
-            font-weight: bold;
-            color: #fff;
-            transition: color 0.3s ease;
-        }
+.service-item img {
+    width: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border-radius: 10px; 
+}
 
-        .navbar.scrolled .nav-center a {
-            color: #000;
-        }
-    </style>
+
+.service-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.service-item img:active {
+    transform: scale(0.95);
+}
+</style>
+
 </head>
 <body>
 
+
 <nav class="navbar">
     <div class="nav-left">
-        <a href="index.html">
-            <img src="LOGO.png" alt="PetTopia Logo" class="nav-logo">
+        <a href="/HTML/Index.html">
+            <img src="/image/LOGO.png" alt="PetTopia Logo" class="nav-logo">
         </a>
     </div>
 
+
     <ul class="nav-center">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Service</a></li>
-        <li><a href="product.html">Product</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/html/index.html">Home</a></li>
+        <li><a href="/html/about.html">About</a></li>
+        <li><a href="/html/services.html">Service</a></li>
+        <li><a href="/html/product.html">Product</a></li>
+        <li><a href="/html/gallery.html">Gallery</a></li>
+        <li><a href="/html/contact.html">Contact</a></li>
     </ul>
+
 
     <div class="nav-right">
         <div class="hamburger" id="hamburger">
@@ -48,101 +61,149 @@
     </div>
 </nav>
 
-<script>
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if(window.scrollY > 50){
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+   <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('.nav-center a');
-        const currentPath = window.location.pathname.split("/").pop();
+  window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if(window.scrollY > 50){  
+          navbar.classList.add('scrolled');
+      } else {
+          navbar.classList.remove('scrolled');
+      }
+  });
 
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPath) {
-                link.classList.add('active');
-            }
-        });
-    });
 
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.querySelector('.nav-center');
+  document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-center a');
+      const currentPath = window.location.pathname;
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-    });
+      navLinks.forEach(link => {
+          if (link.pathname === currentPath) {
+              link.classList.add('active');
+          }
+      });
+  });
 
-    document.querySelectorAll('.nav-center a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('show');
-        });
-    });
+  
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.querySelector('.nav-center');
+
+  hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show'); 
+  });
+
+ 
+  document.querySelectorAll('.nav-center a').forEach(link => {
+      link.addEventListener('click', () => {
+          navMenu.classList.remove('show');
+      });
+  });
 </script>
 
-<section class="services-section">
-    <h2 class="logo">Our Services</h2>
-    <div class="services-content">
-        <p>
-            At PetTopia, we offer premium pet boarding, grooming, and daycare services. Our team ensures each pet receives personal attention, comfortable living, and fun activities while you're away. Your pet’s happiness and safety are our top priorities.
-        </p>
-        <img src="services.png" alt="Services Image" class="services-img">
-    </div>
+    
+<section class="service-header">
+    <h1 class="logo">Services</h1>
 </section>
 
-<a href="index.html" id="backToTop">
-    <img src="back to top.png" alt="Back to Top" />
+<div class="service-container">
+    <div class="service-grid">
+        <div class="service-item">
+            <a href="https://wa.me/60199937569" target="_blank">
+                <img src="/image/s1.png" alt="Pet Food and Supplies">
+            </a>
+            <p>Pet food and supplies</p>
+        </div>
+        <div class="service-item">
+            <a href="https://wa.me/60199937569" target="_blank">
+                <img src="/image/s2.png" alt="Bathing and Grooming Basics">
+            </a>
+            <p>Bathing and grooming basics</p>
+        </div>
+        <div class="service-item">
+            <a href="https://wa.me/60199937569" target="_blank">
+                <img src="/image/s3.png" alt="Pet Grooming">
+            </a>
+            <p>Pet grooming</p>
+        </div>
+        <div class="service-item">
+            <a href="https://wa.me/60199937569" target="_blank">
+                <img src="/image/s4.png" alt="Care Services">
+            </a>
+            <p>Care services</p>
+        </div>
+        <div class="service-item">
+            <a href="https://wa.me/60199937569" target="_blank">
+                <img src="/image/s5.png" alt="SPA/Therapy">
+            </a>
+            <p>SPA/therapy</p>
+        </div>
+        <div class="service-item">
+            <a href="https://wa.me/60199937569" target="_blank">
+                <img src="/image/s6.png" alt="Deworming">
+            </a>
+            <p>Deworming</p>
+        </div>
+    </div>
+</div>
+
+
+<a href="/HTML/services.html" id="backToTop">
+    <img src="/image/back%20to%20top.png" alt="Back to Top" />
 </a>
 
-<script>
-    window.addEventListener("scroll", function() {
-        const btn = document.getElementById("backToTop");
-        if (window.scrollY > 300) {
-            btn.style.display = "block";
-        } else {
-            btn.style.display = "none";
-        }
-    });
+    <script>
+window.addEventListener("scroll", function() {
+    const btn = document.getElementById("backToTop");
+    if (window.scrollY > 300) {   
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+});
 
-    document.getElementById("backToTop").addEventListener("click", function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
+document.getElementById("backToTop").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"  
     });
-</script>
+});
+        </script>
 
+<!-- Footer -->
 <footer class="footer">
     <div class="footer-top">
         <div class="footer-col">
-            <a href="index.html">
-                <img src="LOGO.png" alt="PetTopia Logo" class="footer-logo">
+            <a href="/HTML/Index.html">
+            <img src="/image/LOGO.png" alt="PetTopia Logo" class="footer-logo">
             </a>
         </div>
         <div class="footer-col">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Service</a>
-            <a href="product.html">Product</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/about.html">About</a>
+            <a href="/html/services.html">Service</a>
+            <a href="/html/product.html">Product</a>
+            <a href="/html/gallery.html">Gallery</a>
+            <a href="/html/contact.html">Contact</a>
         </div>
         <div class="footer-col">
             <h4>Location</h4>
             <a href="https://www.waze.com/live-map/directions/my/pahang/jerantut/taman-mawar-murni?to=place.ChIJjfIYPp9ByTER5i1r4z_Zrso" target="_blank">
-                <p>Taman Mawar Murni,<br>27000 Jerantut,<br>Pahang</p>
+            <p>Taman Mawar Murni,<br>27000 Jerantut,<br>Pahang</p>
             </a>
         </div>
         <div class="footer-col">
-            <h4>Contact</h4>
-            <p><a href="mailto:pettopia@gmail.com">pettopia@gmail.com</a></p>
-            <p><a href="https://wa.me/60139884339" target="_blank">013-9884339</a></p>
-            <p><a href="https://wa.me/60199937569" target="_blank">019-9937569</a></p>
-        </div>
+    <h4>Contact</h4>
+    
+    <p><a href="mailto:pettopia@gmail.com">pettopia@gmail.com</a></p>
+    
+   
+    <p><a href="https://wa.me/60139884339" target="_blank">013-9884339</a></p>
+    <p><a href="https://wa.me/60199937569" target="_blank">019-9937569</a></p>
+</div>
     </div>
     <div class="footer-bottom">
-        © 2025 PetTopia. All Rights Reserved. Designed by Chin Chun Lam.
+        © 2025PetTopia. All Rights Reserved. Designed by Chin Chun Lam.
     </div>
 </footer>
 
