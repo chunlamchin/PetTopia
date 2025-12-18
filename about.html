@@ -1,101 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PetTopia | About Us</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>PetTopia | About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #AED9FB;
+        }
+
+        .nav-center a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar.scrolled .nav-center a {
+            color: #000;
+        }
+    </style>
 </head>
 <body>
 
-<!-- ===== Navbar ===== -->
 <nav class="navbar">
-  <a href="index.html">
-    <img src="image/LOGO.png" class="nav-logo" alt="PetTopia Logo">
-  </a>
+    <div class="nav-left">
+        <a href="index.html">
+            <img src="LOGO.png" alt="PetTopia Logo" class="nav-logo">
+        </a>
+    </div>
 
-  <ul class="nav-center">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="services.html">Service</a></li>
-    <li><a href="product.html">Product</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+    <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Service</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 </nav>
 
-<!-- ===== About Hero Section ===== -->
-<section class="about-hero">
-  <div class="about-hero-content">
-    <h1>About PetTopia</h1>
-    <p>Where love, care, and happiness come together for your pets.</p>
-  </div>
-</section>
+<script>
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if(window.scrollY > 50){
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
-<!-- ===== About Content ===== -->
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-center a');
+        const currentPath = window.location.pathname.split("/").pop();
+
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.querySelector('.nav-center');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.nav-center a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+        });
+    });
+</script>
+
 <section class="about-section">
-  <div class="about-container">
-
-    <div class="about-text">
-      <h2>Who We Are</h2>
-      <p>
-        PetTopia is a dedicated pet care brand committed to providing a safe,
-        loving, and joyful environment for pets of all kinds.
-        We believe every pet deserves the highest quality care, attention,
-        and comfort.
-      </p>
-
-      <p>
-        From professional grooming and wellness services to carefully selected
-        products, PetTopia is designed to be a second home where pets feel
-        relaxed, happy, and truly cared for.
-      </p>
+    <h2 class="logo">About Us</h2>
+    <div class="about-content">
+        <p>
+            Welcome to PetTopia! Our experienced and compassionate team ensures your pets are happy and cared for while you're away. We focus on comfort, fun, and safety, making every visit a stress-free experience for both pets and their owners.
+        </p>
+        <img src="about.png" alt="About Us Image" class="about-img">
     </div>
-
-    <div class="about-image">
-      <img src="image/g1.png" alt="Happy pets at PetTopia">
-    </div>
-
-  </div>
 </section>
 
-<!-- ===== Mission & Vision ===== -->
-<section class="about-mission">
-  <div class="mission-box">
-    <h2>Our Mission</h2>
-    <p>
-      To deliver exceptional pet care services with love, professionalism,
-      and trust — ensuring every pet feels safe and happy.
-    </p>
-  </div>
-
-  <div class="mission-box">
-    <h2>Our Vision</h2>
-    <p>
-      To become a trusted pet care destination where pets and owners
-      build lifelong bonds and unforgettable experiences.
-    </p>
-  </div>
-</section>
-
-<!-- ===== Back to Top ===== -->
-<a href="#" id="backToTop">
-  <img src="image/back to top.png" alt="Back to Top">
+<a href="index.html" id="backToTop">
+    <img src="back to top.png" alt="Back to Top" />
 </a>
 
-<!-- ===== Footer ===== -->
+<script>
+    window.addEventListener("scroll", function() {
+        const btn = document.getElementById("backToTop");
+        if (window.scrollY > 300) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    });
+
+    document.getElementById("backToTop").addEventListener("click", function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
+
 <footer class="footer">
-  <img src="image/LOGO.png" class="footer-logo" alt="PetTopia Logo">
-
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Service</a>
-    <a href="product.html">Product</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
-  <p>© 2025 PetTopia. Designed by Chin Chun Lam.</p>
+    <div class="footer-top">
+        <div class="footer-col">
+            <a href="index.html">
+                <img src="LOGO.png" alt="PetTopia Logo" class="footer-logo">
+            </a>
+        </div>
+        <div class="footer-col">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Service</a>
+            <a href="product.html">Product</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+            <h4>Location</h4>
+            <a href="https://www.waze.com/live-map/directions/my/pahang/jerantut/taman-mawar-murni?to=place.ChIJjfIYPp9ByTER5i1r4z_Zrso" target="_blank">
+                <p>Taman Mawar Murni,<br>27000 Jerantut,<br>Pahang</p>
+            </a>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p><a href="mailto:pettopia@gmail.com">pettopia@gmail.com</a></p>
+            <p><a href="https://wa.me/60139884339" target="_blank">013-9884339</a></p>
+            <p><a href="https://wa.me/60199937569" target="_blank">019-9937569</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 PetTopia. All Rights Reserved. Designed by Chin Chun Lam.
+    </div>
 </footer>
 
 </body>
