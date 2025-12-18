@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PetTopia | Product</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #D4F1F4;
+        }
+
+        .nav-center a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar.scrolled .nav-center a {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-left">
+        <a href="index.html">
+            <img src="LOGO.png" alt="PetTopia Logo" class="nav-logo">
+        </a>
+    </div>
+
+    <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Service</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<script>
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if(window.scrollY > 50){
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-center a');
+        const currentPath = window.location.pathname.split("/").pop();
+
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.querySelector('.nav-center');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.nav-center a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+        });
+    });
+</script>
+
+<section class="product-section">
+    <h2 class="logo">Our Products</h2>
+    <div class="product-content">
+        <p>
+            PetTopia provides a variety of high-quality pet products including nutritious food, toys, grooming supplies, and accessories. Each product is carefully selected to ensure your pet stays healthy, happy, and entertained.
+        </p>
+        <img src="product.png" alt="Product Image" class="product-img">
+    </div>
+</section>
+
+<a href="index.html" id="backToTop">
+    <img src="back to top.png" alt="Back to Top" />
+</a>
+
+<script>
+    window.addEventListener("scroll", function() {
+        const btn = document.getElementById("backToTop");
+        if (window.scrollY > 300) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    });
+
+    document.getElementById("backToTop").addEventListener("click", function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
+
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-col">
+            <a href="index.html">
+                <img src="LOGO.png" alt="PetTopia Logo" class="footer-logo">
+            </a>
+        </div>
+        <div class="footer-col">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Service</a>
+            <a href="product.html">Product</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+            <h4>Location</h4>
+            <a href="https://www.waze.com/live-map/directions/my/pahang/jerantut/taman-mawar-murni?to=place.ChIJjfIYPp9ByTER5i1r4z_Zrso" target="_blank">
+                <p>Taman Mawar Murni,<br>27000 Jerantut,<br>Pahang</p>
+            </a>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p><a href="mailto:pettopia@gmail.com">pettopia@gmail.com</a></p>
+            <p><a href="https://wa.me/60139884339" target="_blank">013-9884339</a></p>
+            <p><a href="https://wa.me/60199937569" target="_blank">019-9937569</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 PetTopia. All Rights Reserved. Designed by Chin Chun Lam.
+    </div>
+</footer>
+
+</body>
+</html>
