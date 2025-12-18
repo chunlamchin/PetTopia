@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <title>PetTopia | About Us</title>
     <link rel="stylesheet" href="style.css">
+    
     <style>
-        body {
-            background-color: #AED9FB;
-        }
+     body {
+         background-color: #86E7FF;
+         }
+        
+        .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px); 
+    transition: all 0.6s ease-out;
+}
 
-        .nav-center a {
-            text-decoration: none;
-            font-weight: bold;
-            color: #fff;
-            transition: color 0.3s ease;
-        }
+.animate-on-scroll {
+  opacity: 0;              
+  transform: translateY(20px); 
+  transition: opacity 0.6s ease, transform 0.6s ease; 
+}
 
-        .navbar.scrolled .nav-center a {
-            color: #000;
-        }
+.animate-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
     </style>
+    
 </head>
 <body>
+
 
 <nav class="navbar">
     <div class="nav-left">
@@ -30,14 +40,16 @@
         </a>
     </div>
 
+
     <ul class="nav-center">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Service</a></li>
-        <li><a href="product.html">Product</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/html/index.html">Home</a></li>
+        <li><a href="/html/about.html">About</a></li>
+        <li><a href="/html/services.html">Service</a></li>
+        <li><a href="/html/product.html">Product</a></li>
+        <li><a href="/html/gallery.html">Gallery</a></li>
+        <li><a href="/html/contact.html">Contact</a></li>
     </ul>
+
 
     <div class="nav-right">
         <div class="hamburger" id="hamburger">
@@ -48,103 +60,240 @@
     </div>
 </nav>
 
-<script>
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if(window.scrollY > 50){
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+   <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('.nav-center a');
-        const currentPath = window.location.pathname.split("/").pop();
+  window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if(window.scrollY > 50){  
+          navbar.classList.add('scrolled');
+      } else {
+          navbar.classList.remove('scrolled');
+      }
+  });
 
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPath) {
-                link.classList.add('active');
-            }
-        });
-    });
 
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.querySelector('.nav-center');
+  document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-center a');
+      const currentPath = window.location.pathname;
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-    });
+      navLinks.forEach(link => {
+          if (link.pathname === currentPath) {
+              link.classList.add('active');
+          }
+      });
+  });
 
-    document.querySelectorAll('.nav-center a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('show');
-        });
-    });
+
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.querySelector('.nav-center');
+
+  hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show'); 
+  });
+
+ 
+  document.querySelectorAll('.nav-center a').forEach(link => {
+      link.addEventListener('click', () => {
+          navMenu.classList.remove('show');
+      });
+  });
 </script>
+    
+    
 
-<section class="about-section">
-    <h2 class="logo">About Us</h2>
-    <div class="about-content">
+
+<section class="about-header">
+    <h1 class="logo">About Us</h1>
+</section>
+
+
+<section class="about-intro">
+    <img src="/image/About%20Intro.png" alt="Dog Icon">
+    <p>
+        PetTopia was founded by passionate pet lovers who once struggled to find the right place to leave their beloved companions while traveling for business or leisure. Most options felt stressful for pets—whether due to cages, overcrowding, or unsuitable environments. This inspired the idea of creating a holistic haven where pets could truly feel at home.
+    </p>
+</section>
+
+
+<section class="mv-section">
+    <div class="mv-container">
+
+        <div class="mv-card animate-on-scroll">
+            <h2>Mission</h2>
+            <p>
+                Provide quality pet grooming services and essential pet products with care, professionalism, and a passion for pet well-being.
+            </p>
+            
+            <img src="/image/mission.png" alt="Mission Image" class="mv-card-img">
+        </div>
+
+        <div class="mv-card animate-on-scroll">
+            <h2>Vision</h2>
+            <p>
+                To be a trusted name in pet care, known for excellent service and for promoting greater awareness of pet health and well-being.
+            </p>
+            
+            <img src="/image/vision.png" alt="Mission Image" class="mv-card-img">
+        </div>
+
+    </div>
+</section>   
+
+
+
+
+<section class="why-section">
+    <div class="why-card animate-on-scroll">
+        <div class="why-header">
+            <h2>Why Choose Us</h2>
+            <img src="/image/why%20choose%20us.png" alt="Why Choose Us Image" class="why-image">
+        </div>
         <p>
-            Welcome to PetTopia! Our experienced and compassionate team ensures your pets are happy and cared for while you're away. We focus on comfort, fun, and safety, making every visit a stress-free experience for both pets and their owners.
+            At PetTopia, we take great pride in who we are and can’t wait to welcome you and your beloved pets to experience care and comfort like no other. Your furry companions will enjoy a clean, safe, and loving environment with us.
         </p>
-        <img src="about.png" alt="About Us Image" class="about-img">
+       
+        <p>
+            We treat every pet as if they were our own. Our friendly team ensures that each pet feels relaxed and at ease, offering companionship, playtime, and cozy spaces to rest. With plenty of toys, a warm atmosphere, and dedicated attention, your pets will always feel right at home.
+        </p>
+        
+        <p>
+            We also cater to individual needs, including special diets and medications, so you can have complete peace of mind knowing your pets are in loving hands.
+        </p>
     </div>
 </section>
 
-<a href="index.html" id="backToTop">
-    <img src="back to top.png" alt="Back to Top" />
-</a>
 
+
+<section class="core-values">
+    <h2>Core Value</h2>
+  
+    <div class="values-grid">
+        <div class="value-card animate-on-scroll">
+            <img src="/image/V1.png" alt="Compassion">
+            <p>Compassion</p>
+        </div>
+  
+        <div class="value-card animate-on-scroll">
+            <img src="/image/V2.png" alt="Quality">
+            <p>Quality</p>
+        </div>
+  
+        <div class="value-card animate-on-scroll">
+            <img src="/image/V3.png" alt="Trust">
+            <p>Trust</p>
+        </div>
+  
+        <div class="value-card animate-on-scroll">
+            <img src="/image/V4.png" alt="Passion">
+            <p>Passion</p>
+        </div>
+  
+        <div class="value-card animate-on-scroll">
+            <img src="/image/V5.png" alt="Education">
+            <p>Education</p>
+        </div>
+    </div>
+</section>
+
+    
 <script>
-    window.addEventListener("scroll", function() {
-        const btn = document.getElementById("backToTop");
-        if (window.scrollY > 300) {
-            btn.style.display = "block";
-        } else {
-            btn.style.display = "none";
-        }
-    });
 
-    document.getElementById("backToTop").addEventListener("click", function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollElements = document.querySelectorAll('.animate-on-scroll');
+
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show'); 
+      } else {
+        entry.target.classList.remove('show'); 
+      }
     });
+  }, {
+    threshold: 0.1 
+  });
+
+
+  scrollElements.forEach(el => {
+    observer.observe(el);
+  });
 </script>
 
+
+
+
+<a href="/HTML/about.html" id="backToTop">
+    <img src="/image/back%20to%20top.png" alt="Back to Top" />
+</a>
+
+    <script>
+window.addEventListener("scroll", function() {
+    const btn = document.getElementById("backToTop");
+    if (window.scrollY > 300) {   
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+});
+
+document.getElementById("backToTop").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"   
+    });
+});
+        </script>
+
+
 <footer class="footer">
+
     <div class="footer-top">
+
+      
         <div class="footer-col">
-            <a href="index.html">
-                <img src="LOGO.png" alt="PetTopia Logo" class="footer-logo">
+           <a href="/HTML/Index.html">
+            <img src="/image/LOGO.png" alt="PetTopia Logo" class="footer-logo">
             </a>
         </div>
+
+   
         <div class="footer-col">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Service</a>
-            <a href="product.html">Product</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/about.html">About</a>
+            <a href="/html/services.html">Service</a>
+            <a href="/html/product.html">Product</a>
+            <a href="/html/gallery.html">Gallery</a>
+            <a href="/html/contact.html">Contact</a>
         </div>
+
+      
         <div class="footer-col">
             <h4>Location</h4>
             <a href="https://www.waze.com/live-map/directions/my/pahang/jerantut/taman-mawar-murni?to=place.ChIJjfIYPp9ByTER5i1r4z_Zrso" target="_blank">
-                <p>Taman Mawar Murni,<br>27000 Jerantut,<br>Pahang</p>
+            <p>Taman Mawar Murni,<br>27000 Jerantut,<br>Pahang</p>
             </a>
         </div>
+
+       
         <div class="footer-col">
-            <h4>Contact</h4>
-            <p><a href="mailto:pettopia@gmail.com">pettopia@gmail.com</a></p>
-            <p><a href="https://wa.me/60139884339" target="_blank">013-9884339</a></p>
-            <p><a href="https://wa.me/60199937569" target="_blank">019-9937569</a></p>
-        </div>
+    <h4>Contact</h4>
+  
+    <p><a href="mailto:pettopia@gmail.com">pettopia@gmail.com</a></p>
+    
+    
+    <p><a href="https://wa.me/60139884339" target="_blank">013-9884339</a></p>
+    <p><a href="https://wa.me/60199937569" target="_blank">019-9937569</a></p>
+</div>
     </div>
+
+ 
     <div class="footer-bottom">
-        © 2025 PetTopia. All Rights Reserved. Designed by Chin Chun Lam.
+        © 2025PetTopia. All Rights Reserved. Designed by Chin Chun Lam.
     </div>
+
 </footer>
+
 
 </body>
 </html>
