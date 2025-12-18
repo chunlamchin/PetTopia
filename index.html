@@ -1,65 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PetTopia | Home</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>PetTopia | Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            background-color: #AED9FB;
+        }
+             
+        .nav-center a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #fff; 
+            transition: color 0.3s ease; 
+        }
+
+        .navbar.scrolled .nav-center a {
+            color: #000; 
+        }
+    </style>
 </head>
 <body>
 
 <nav class="navbar">
-  <div class="nav-left">
-    <a href="index.html">
-      <img src="image/LOGO.png" class="nav-logo" alt="PetTopia">
-    </a>
-  </div>
-
-  <ul class="nav-center">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Service</a></li>
-    <li><a href="product.html">Product</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-
-  <div class="nav-right">
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+    <div class="nav-left">
+        <a href="index.html">
+            <img src="image/LOGO.png" alt="PetTopia Logo" class="nav-logo">
+        </a>
     </div>
-  </div>
+
+    <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Service</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>"Where Happy<br>Pets Feel<br>at Home."</h1>
-    <a href="services.html">
-      <img src="image/h1.png" class="btn-image" alt="">
-    </a>
-  </div>
-</section>
+<script>
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if(window.scrollY > 50){  
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
 
-<a href="#" id="backToTop">
-  <img src="image/back to top.png" alt="">
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-center a');
+    const currentPath = window.location.pathname.split("/").pop();
+
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath || (currentPath === "" && link.getAttribute('href') === "index.html")) {
+            link.classList.add('active');
+        }
+    });
+});
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.querySelector('.nav-center');
+
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show'); 
+});
+
+document.querySelectorAll('.nav-center a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+    });
+});
+</script>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>"Where Happy<br>Pets Feel<br>at Home."</h1>
+        <a href="services.html">
+            <img src="image/h1.png" alt="View More" class="btn-image">
+        </a>
+    </div>
+</section>
+    
+<section class="our-service">
+    <h2 class="logo">Our Service</h2>
+    <div class="service-layout">
+        <div class="large-image">
+            <a href="product.html">
+                <img src="image/Frame 19.png" alt="Pet food and supplies">
+            </a>
+        </div>
+        <div class="small-images">
+            <a href="services.html">
+                <img src="image/Frame 20.png" alt="Care Services" class="small-img">
+            </a>
+            <a href="services.html">
+                <img src="image/Frame 21.png" alt="Deworming" class="small-img">
+            </a>
+        </div>
+    </div>
+
+    <a href="services.html">
+        <img src="image/h2.png" alt="View More" class="btn-image">
+    </a>
+</section>
+    
+<section class="habout-us">
+    <h2 class="logo">About Us</h2>
+    <div class="habout-content">
+        <p>
+            At PetTopia, our experienced and compassionate team is dedicated to caring for your pets while you’re away. We ensure they remain happy, comfortable, and stress-free throughout their stay, giving you complete peace of mind. Relax and enjoy your time knowing your pets are safe and well cared for with us.
+        </p>
+        <a href="about.html">
+            <img src="image/h4.png" alt="View More" class="btn-image">
+        </a>
+    </div>
+    <div class="habout-icon">
+        <img src="image/home.png" alt="Cat Icon">
+    </div>
+</section>
+    
+<section class="top-sales">
+    <h2 class="logo">Top Sales</h2>
+    <div class="sales-products">
+        <div class="product-item">
+            <div class="product-box">
+                <a href="#">
+                    <img src="image/1.avif" alt="Pedigree Puppy Food">
+                </a>
+            </div>
+        </div>
+        <div class="product-item">
+            <div class="product-box">
+                <a href="#">
+                    <img src="image/9.webp" alt="Whiskas Cat Food">
+                </a>
+            </div>
+        </div>
+        <div class="product-item">
+            <div class="product-box">
+                <a href="#">
+                    <img src="image/3.avif" alt="Pedigree Adult Dog Food">
+                </a>
+            </div>
+        </div>
+    </div>
+    <a href="product.html">
+        <img src="image/h4.png" alt="View More" class="hbtn-image">
+    </a>
+</section>
+    
+<a href="index.html" id="backToTop">
+    <img src="image/back to top.png" alt="Back to Top" />
 </a>
 
+<script>
+window.addEventListener("scroll", function() {
+    const btn = document.getElementById("backToTop");
+    if (window.scrollY > 300) {  
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+});
+
+document.getElementById("backToTop").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+</script>
+
 <footer class="footer">
-  <div class="footer-top">
-    <div class="footer-col">
-      <img src="image/LOGO.png" class="footer-logo">
+    <div class="footer-top">
+        <div class="footer-col">
+            <a href="index.html">
+                <img src="image/LOGO.png" alt="PetTopia Logo" class="footer-logo">
+            </a>
+        </div>
+        <div class="footer-col">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Service</a>
+            <a href="product.html">Product</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+            <h4>Location</h4>
+            <a href="https://www.waze.com/live-map/directions/my/pahang/jerantut/taman-mawar-murni?to=place.ChIJjfIYPp9ByTER5i1r4z_Zrso" target="_blank">
+                <p>Taman Mawar Murni,<br>27000 Jerantut,<br>Pahang</p>
+            </a>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p><a href="mailto:pettopia@gmail.com">pettopia@gmail.com</a></p>
+            <p><a href="https://wa.me/60139884339" target="_blank">013-9884339</a></p>
+            <p><a href="https://wa.me/60199937569" target="_blank">019-9937569</a></p>
+        </div>
     </div>
-    <div class="footer-col">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Service</a>
-      <a href="product.html">Product</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
+    <div class="footer-bottom">
+        © 2025 PetTopia. All Rights Reserved. Designed by Chin Chun Lam.
     </div>
-  </div>
-  <div class="footer-bottom">
-    © 2025 PetTopia. Designed by Chin Chun Lam.
-  </div>
 </footer>
 
 </body>
