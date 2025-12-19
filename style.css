@@ -764,6 +764,25 @@
 /* ================== 移动端响应式（max-width: 768px） ================== */
 @media (max-width: 768px) {
 
+@font-face {
+  font-family: 'Pacifico';
+  src: url('../fonts/Pacifico-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.site-title,
+.logo {
+  font-family: 'Pacifico-Regular', cursive;
+}
+  
     /* Navbar */
     .navbar {
         padding: 15px 20px;
