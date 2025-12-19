@@ -785,6 +785,11 @@ body {
     box-sizing: border-box;
     font-family: "Comic Sans MS", cursive, sans-serif;
 }
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+  font-family: 'Pacifico', cursive;
+}
 
 .site-title,
 .logo {
