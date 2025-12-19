@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'Pacifico';
   src: url('Pacifico-Regular.woff2') format('truetype');
@@ -8,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 body {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico-Regular', cursive;
 }
 
 
@@ -17,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Comic Neue", cursive, sans-serif;
 }
 
 .site-title,
